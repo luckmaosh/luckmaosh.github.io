@@ -2,10 +2,10 @@
 title: 'MASO科技博客'
 description: '昵称'
 keyword: 'MASO, 科技博客, java, vuejs, 后端开发, 服务端, javascript, python, nodejs, 数码'
-url: https://msh.github.io # your host
+# url: https://msh.github.io # your host
 # repository: luckymaosh/ruobiying.github.io
 # github_url: https://github.com/luckymaosh
-# url: https://luckymaosh.github.io
+url: https://luckymaosh.github.io
 
 # when build blog on server, if you don't need baseurl, you should leave this value blank.
 # 在服务器上建站时，如果你不需要子域名，请将这一格留空
