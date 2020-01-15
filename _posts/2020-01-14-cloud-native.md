@@ -20,7 +20,17 @@ CNCF（云原生基金会）2015年建立
  - 不可变基础设施
  - 声明式API （）
  
+ 生态大图
+ ![](https://tva1.sinaimg.cn/large/006tNbRwly1gax0scsgf4j30zk0k0gt5.jpg)
+ 
+ 
 PIVOTAL：毕威拓是一家位于美国加州的计算机软件公司。
+
+阿里巴巴
+
+云生态家族产品
+![产品](https://tva1.sinaimg.cn/large/006tNbRwly1gawzqdufzgj30k00b6wfb.jpg)
+感觉更多是在展示阿里云自家的产品中间件都在云上，涵盖底层基础设施、数据智能、分布式应用等
 
 ## 技术进化之路
 - 虚拟化
