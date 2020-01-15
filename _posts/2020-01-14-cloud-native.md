@@ -20,7 +20,11 @@ CNCF（云原生基金会）2015年建立
  - 不可变基础设施
  - 声明式API （）
  
- 生态大图
+ 这边引用网上关于云原生所需要的能力和特征总结，如下图。
+![](https://tva1.sinaimg.cn/large/006tNbRwly1gax157n2qfj30zk0n70w2.jpg)
+
+
+ cncf的云生态大图
  ![](https://tva1.sinaimg.cn/large/006tNbRwly1gax0scsgf4j30zk0k0gt5.jpg)
  
  
