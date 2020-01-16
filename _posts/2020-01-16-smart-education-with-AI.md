@@ -1,3 +1,11 @@
+---
+layout: post
+title: 智慧教育和AI
+date: 2022-01-16
+categories: education
+tags: 教育 AI 智慧
+---
+
 # 智慧教育和AI
 
 应用场景
