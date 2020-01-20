@@ -1,3 +1,10 @@
+---
+layout: post
+title: unix内核源码
+date: 2020-01-20
+categories: unix
+tags: 内核 unix
+---
 
 - Version 5 Unix这个版本，AT&T公司只授权给学术机构使用。
 
