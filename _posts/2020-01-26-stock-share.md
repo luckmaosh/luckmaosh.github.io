@@ -19,13 +19,15 @@ tags: stock
 - 公司法规定不能超过一定人数，所以有些持股需要让人代持，私下签订代持协议；
 - 持股平台，对于全员持股的公司，需要成立一个平台专门来管理员工股票
 
+![](https://tva1.sinaimg.cn/large/006tNbRwgy1gb9zkmne8fj30k60aowiv.jpg)
+
 持股比例
 ![](https://tva1.sinaimg.cn/large/006tNbRwgy1gb9zsgmnevj30om0d6tgd.jpg)
 
 同股不同权
 ![](https://tva1.sinaimg.cn/large/006tNbRwgy1gb9zroyj0ij30qk0a4thd.jpg)
 
-![](https://tva1.sinaimg.cn/large/006tNbRwgy1gb9zkmne8fj30k60aowiv.jpg)
+
 
 对于一些加入不久就离开公司的人，实际上后续不会对公司有贡献，如果一次性把股权全部授予，对公司未来发展是非常不利的。所以需要有一套退出机制；一般的做法就是分期授予，一般分4到5年。
 ![](https://tva1.sinaimg.cn/large/006tNbRwgy1gb9znqg9ctj31dk0nmasm.jpg)
