@@ -29,7 +29,7 @@ tags: 内核 unix
 - PSW，processor status word, 处理器状态字
 - MMU 内存管理单元
 - TSS time share system
-
+- 中断：是指用来实现下述处理的机制：当周边设备发出请求时，暂停执行中的进程，转 而执行与请求相对应的处理。
 
 ## 进程的内存结构
 代码段，用来存程序指令，只读。
@@ -39,4 +39,8 @@ tags: 内核 unix
 
 每个进程都拥有独立的虚拟地址空间
 ![](https://tva1.sinaimg.cn/large/006tNbRwly1gb2v9yhk2cj313w0u0dl5.jpg)
+
+### proc结构体
+
+### user结构体
 
