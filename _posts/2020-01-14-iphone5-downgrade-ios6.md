@@ -16,11 +16,17 @@
 
 ## 降级ios6
 
-- 文档：https://github.com/synackuk/n1ghtshade
-- 步骤
--  下载6.1.2的固件
--  启动n1ghtshade，点击restore ，第二步，select ipsw，再点击restore就开始
--  将手机进入dfu（Device Firmware Upgrade）模式
--  等待刷机
--   第一阶段刷完之后页面显示完成，其实还没有真正完成。还需要点击页面第二个按钮，进入boot，再次进入dfu模式
+- 下载刷机的固件6.1.3或者6.1.4和刷机软件
+-  启动Mac上的软件n1ghtshade，点击restore ，第二步，select ipsw，选中刚才下载的固件，再点击restore就开始
+-  这时候将手机进入dfu（Device Firmware Upgrade）模式 ，进入的方式可以百度一下
+-  等待刷机，等几分钟，这时候可能会卡住不动，退出进程，重新来一次，直到出现这个界面，就开始刷机了
+![](https://tva1.sinaimg.cn/large/0082zybpgy1gc9im8nc7aj31mo0q07wh.jpg)
+
+完成界面
+![](https://tva1.sinaimg.cn/large/0082zybpgy1gc9ijq6q90j30rt112aep.jpg)
+
+-  第一阶段刷完之后页面显示完成，其实还没有真正完成。还需要点击页面第二个按钮，进入boot，再次进入dfu模式
+
+![](https://tva1.sinaimg.cn/large/0082zybpgy1gc9ik7lrf7j30rt112afd.jpg)
+
 -   这次刷完之后就好了 

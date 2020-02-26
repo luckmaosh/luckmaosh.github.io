@@ -32,3 +32,8 @@ https://blog.csdn.net/liuchen1206/article/details/77771703
  两种方式： vlc播放器，或者h5播放
 ![](https://tva1.sinaimg.cn/large/0082zybply1gc8selxklbj30iu079mxr.jpg)
 简简单单的代码，重点在于拉流地址必须与推流地址一致
+
+
+- https://pay.weixin.qq.com/static/applyment_guide/applyment_detail_website.shtml
+
+- https://docs.open.alipay.com/270/105899/
