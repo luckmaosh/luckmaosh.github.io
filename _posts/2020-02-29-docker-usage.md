@@ -21,7 +21,7 @@ hello-world         latest              fce289e99eb9        14 months ago       
 列出容器，容器是运行中的镜像
 
 ```
-➜  ~ docker ps
+~ docker ps
 CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS               NAMES
 ```
 
