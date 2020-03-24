@@ -40,6 +40,20 @@ https://blog.goonxh.com/demo/screenRecord
 
 https://blog.csdn.net/blueXh/article/details/88955821?depth_1-utm_source=distribute.pc_relevant.none-task
 
+```javascript
+
+<script type="text/javascript">
+navigator.mediaDevices.getDisplayMedia({ video: true })
+ .then(stream => {
+    //we have a stream, attach it to a feedback video element
+    videoElement.srcObject = stream;
+  }, error => {
+    console.log("Unable to acquire screen capture", error);
+  });
+</script>	
+
+```
+
 产品使用流程
 
 发起人流程
