@@ -36,5 +36,24 @@ ffmpeg + node：FFmpeg是一套非常强大的音视频处理的开源工具，�
 
 https://blog.goonxh.com/demo/screenRecord
 
-博客地址
+博客地址：
+
 https://blog.csdn.net/blueXh/article/details/88955821?depth_1-utm_source=distribute.pc_relevant.none-task
+
+产品使用流程
+
+发起人流程
+
+- 选择联系人
+- 点击共享屏幕，调用浏览器的接口，截取屏幕
+- 选择要共享的窗口，确定共享
+
+接收人流程
+
+- 收到共享消息，点击确认
+- 看到共享的屏幕
+
+
+##  后续
+
+看了很多网页，发现自己的前端知识太差，需要充电🔋，赶紧刷一下vue，nodejs
