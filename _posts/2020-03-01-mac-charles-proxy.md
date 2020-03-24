@@ -40,3 +40,8 @@ https://tools.lancely.tech/apple/app-search/us/tinder
  解决方法：点击tools-White List Setting，去掉Enable White List前面的勾，然后点击ok就行了。
 
 ![](https://tva1.sinaimg.cn/large/00831rSTly1gcwxnczednj30f10aadgr.jpg)
+
+
+itunes无法验证服务器s.mzstatic的身份
+解决办法，修改host
+![](https://tva1.sinaimg.cn/large/00831rSTly1gcz66zs2evj30v60hudrm.jpg)
