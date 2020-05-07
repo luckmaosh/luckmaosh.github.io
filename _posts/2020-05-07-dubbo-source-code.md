@@ -13,7 +13,7 @@ tags: dubbo
 
 
 ChannelEventRunnable 线程在监听请求
-```
+```java
 @Override
     public void run() {
         if (state == ChannelState.RECEIVED) {
@@ -67,7 +67,7 @@ ChannelEventRunnable 线程在监听请求
 
 - com.alibaba.dubbo.remoting.transport.DecodeHandler
 
-```
+```java
 @Override
 // channel 是这个请求的连接，可以获取远程地址， message是传输的消息
     public void received(Channel channel, Object message) throws RemotingException {
@@ -90,7 +90,7 @@ ChannelEventRunnable 线程在监听请求
 
 处理头部信息 (com.alibaba.dubbo.remoting.exchange.support.header.HeaderExchangeHandler)
 
-```
+```java
 {
         Response res = new Response(req.getId(), req.getVersion());
         if (req.isBroken()) {
@@ -127,7 +127,7 @@ ChannelEventRunnable 线程在监听请求
 com.alibaba.dubbo.rpc.protocol.dubbo.DubboProtocol
 
 
-```
+```java
 @Override
         public Object reply(ExchangeChannel channel, Object message) throws RemotingException {
             if (message instanceof Invocation) {
@@ -163,4 +163,114 @@ com.alibaba.dubbo.rpc.protocol.dubbo.DubboProtocol
                     + (message == null ? null : (message.getClass().getName() + ": " + message))
                     + ", channel: consumer: " + channel.getRemoteAddress() + " --> provider: " + channel.getLocalAddress());
         }
+```
+
+找到invoker，调用invoke方法，inv是Invocation的实例，就是调用参数
+
+invoker的invoke方法是一个过滤器的责任链调用，依次执行EchoFilter、ProtocolFilterWrapper、ClassLoaderFilter、
+
+```java
+ @Override
+                    public Result invoke(Invocation invocation) throws RpcException {
+                        return filter.invoke(next, invocation);
+                    }
+
+```
+
+责任链的构建是在ProtocolFilterWrapper的export方法里面
+
+```java
+    @Override
+    public <T> Exporter<T> export(Invoker<T> invoker) throws RpcException {
+        if (Constants.REGISTRY_PROTOCOL.equals(invoker.getUrl().getProtocol())) {
+            return protocol.export(invoker);
+        }
+        return protocol.export(buildInvokerChain(invoker, Constants.SERVICE_FILTER_KEY, Constants.PROVIDER));
+    }
+
+
+```
+
+```java
+//构建
+private static <T> Invoker<T> buildInvokerChain(final Invoker<T> invoker, String key, String group) {
+        Invoker<T> last = invoker;
+        List<Filter> filters = ExtensionLoader.getExtensionLoader(Filter.class).getActivateExtension(invoker.getUrl(), key, group);
+        if (!filters.isEmpty()) {
+            for (int i = filters.size() - 1; i >= 0; i--) {
+                final Filter filter = filters.get(i);
+                final Invoker<T> next = last;
+                last = new Invoker<T>() {
+
+                    @Override
+                    public Class<T> getInterface() {
+                        return invoker.getInterface();
+                    }
+
+                    @Override
+                    public URL getUrl() {
+                        return invoker.getUrl();
+                    }
+
+                    @Override
+                    public boolean isAvailable() {
+                        return invoker.isAvailable();
+                    }
+
+                    @Override
+                    public Result invoke(Invocation invocation) throws RpcException {
+                        return filter.invoke(next, invocation);
+                    }
+
+                    @Override
+                    public void destroy() {
+                        invoker.destroy();
+                    }
+
+                    @Override
+                    public String toString() {
+                        return invoker.toString();
+                    }
+                };
+            }
+        }
+        return last;
+    }
+```
+
+真正的调用实现逻辑，new RpcResult返回结果。AbstractProxyInvoker类
+
+```java
+    @Override
+    public Result invoke(Invocation invocation) throws RpcException {
+        try {
+            return new RpcResult(doInvoke(proxy, invocation.getMethodName(), invocation.getParameterTypes(), invocation.getArguments()));
+        } catch (InvocationTargetException e) {
+            return new RpcResult(e.getTargetException());
+        } catch (Throwable e) {
+            throw new RpcException("Failed to invoke remote proxy method " + invocation.getMethodName() + " to " + getUrl() + ", cause: " + e.getMessage(), e);
+        }
+    }
+
+```
+
+
+doInvoke的实现有两种，JavassistProxyFactory和JdkProxyFactory。最后发现代码是通过一个反射调用。
+
+JavassistProxyFactory类的实现
+
+```java
+@Override
+    public <T> Invoker<T> getInvoker(T proxy, Class<T> type, URL url) {
+        // TODO Wrapper cannot handle this scenario correctly: the classname contains '$'
+        final Wrapper wrapper = Wrapper.getWrapper(proxy.getClass().getName().indexOf('$') < 0 ? proxy.getClass() : type);
+        return new AbstractProxyInvoker<T>(proxy, type, url) {
+            @Override
+            protected Object doInvoke(T proxy, String methodName,
+                                      Class<?>[] parameterTypes,
+                                      Object[] arguments) throws Throwable {
+                return wrapper.invokeMethod(proxy, methodName, parameterTypes, arguments);
+            }
+        };
+    }
 ```
