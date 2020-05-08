@@ -15,6 +15,33 @@ tags: dubbo
 
 ![](https://tva1.sinaimg.cn/large/007S8ZIlly1gel5n5doacj30m80kiq6q.jpg)
 
+我们知道Dubbo默认是通过Netty进行网络传输，所以这里的源码入口我们应该找到NettyHandler的接收消息的方法
+```java
+
+public void messageReceived(ChannelHandlerContext ctx, MessageEvent e) throws Exception {
+        NettyChannel channel = NettyChannel.getOrAddChannel(ctx.getChannel(), url, handler);
+        try {
+            handler.received(channel, e.getMessage());
+        } finally {
+            NettyChannel.removeChannelIfDisconnected(ctx.getChannel());
+        }
+    }
+
+```
+
+进入到handler.received,最终我们进入AllChannelHandler.received方法中
+```java
+public void received(Channel channel, Object message) throws RemotingException {
+        ExecutorService cexecutor = getExecutorService();
+        try {
+            cexecutor.execute(new ChannelEventRunnable(channel, handler, ChannelState.RECEIVED, message));
+        } catch (Throwable t) {
+            throw new ExecutionException(message, channel, getClass() + " error when process received event .", t);
+        }
+    }
+
+```
+
 ChannelEventRunnable 线程在监听请求
 ```java
 @Override
@@ -91,7 +118,7 @@ ChannelEventRunnable 线程在监听请求
 ```
 
 
-处理头部信息 (com.alibaba.dubbo.remoting.exchange.support.header.HeaderExchangeHandler)
+处理头部信息 (com.alibaba.dubbo.remoting.exchange.support.header.HeaderExchangeHandler), 执行完headleRequest之后，回到receive方法，最终把结果通过channel.send(response)返回消费者
 
 ```java
 
@@ -166,6 +193,7 @@ ChannelEventRunnable 线程在监听请求
 ```
 
 
+上面已经说到，执行完后把结果返回给消费者了，下面就看看执行的具体过程。
 
 答复(reply)逻辑
 
