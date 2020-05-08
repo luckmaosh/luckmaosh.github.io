@@ -1,6 +1,6 @@
 ---
 layout: post
-title: dubbo源码分析（一）
+title: dubbo源码分析（一）：provider提供服务
 date: 2020-05-07
 categories: dubbo
 tags: dubbo
@@ -91,6 +91,48 @@ ChannelEventRunnable 线程在监听请求
 处理头部信息 (com.alibaba.dubbo.remoting.exchange.support.header.HeaderExchangeHandler)
 
 ```java
+
+// receive方法
+@Override
+    public void received(Channel channel, Object message) throws RemotingException {
+        channel.setAttribute(KEY_READ_TIMESTAMP, System.currentTimeMillis());
+        ExchangeChannel exchangeChannel = HeaderExchangeChannel.getOrAddChannel(channel);
+        try {
+            if (message instanceof Request) {
+                // handle request.
+                Request request = (Request) message;
+                if (request.isEvent()) {
+                    handlerEvent(channel, request);
+                } else {
+                    if (request.isTwoWay()) {
+                        //调用handleRequest方法
+                        Response response = handleRequest(exchangeChannel, request);
+                        channel.send(response);
+                    } else {
+                        handler.received(exchangeChannel, request.getData());
+                    }
+                }
+            } else if (message instanceof Response) {
+                handleResponse(channel, (Response) message);
+            } else if (message instanceof String) {
+                if (isClientSide(channel)) {
+                    Exception e = new Exception("Dubbo client can not supported string message: " + message + " in channel: " + channel + ", url: " + channel.getUrl());
+                    logger.error(e.getMessage(), e);
+                } else {
+                    String echo = handler.telnet(channel, (String) message);
+                    if (echo != null && echo.length() > 0) {
+                        channel.send(echo);
+                    }
+                }
+            } else {
+                handler.received(exchangeChannel, message);
+            }
+        } finally {
+            HeaderExchangeChannel.removeChannelIfDisconnected(channel);
+        }
+    }
+
+// handleRequest方法
 {
         Response res = new Response(req.getId(), req.getVersion());
         if (req.isBroken()) {
