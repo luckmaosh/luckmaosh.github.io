@@ -1,4 +1,3 @@
-
 ---
 layout: post
 title: dubbo源码分析（二）序列化
@@ -9,7 +8,8 @@ tags: dubbo
 
 # dubbo源码分析（二）序列化
 
-先看看一个dubbo服务提供者的反序列化异常报错
+先看看一个dubbo服务提供者的反序列化异常报错, 这个问题的原因是dubbo反序列化的时候，序列化器执行readLengthList方法时走到了抽象类里面，所以报错。我们一路分析下去，为什么会出现这个错误。
+
 
 ```java
 java.lang.UnsupportedOperationException: com.alibaba.com.caucho.hessian.io.MapDeserializer@44fa2bac
@@ -46,15 +46,18 @@ java.lang.UnsupportedOperationException: com.alibaba.com.caucho.hessian.io.MapDe
 	at java.lang.Thread.run(Thread.java:745)
 ```
 
+首先，我们依次看看解码的代码流畅
+
 - DubboCountCodec 解码
 
+首先交给DubboCountCodec类来解码
 ```java
 @Override
     public Object decode(Channel channel, ChannelBuffer buffer) throws IOException {
         int save = buffer.readerIndex();
         MultiMessage result = MultiMessage.create();
         do {
-            //继续调用ExchangeCodec
+            //继续调用内部的ExchangeCodec
             Object obj = codec.decode(channel, buffer);
             if (Codec2.DecodeResult.NEED_MORE_INPUT == obj) {
                 buffer.readerIndex(save);
@@ -74,7 +77,7 @@ java.lang.UnsupportedOperationException: com.alibaba.com.caucho.hessian.io.MapDe
         return result;
     }
 ```
-- ExchangeCodec 解码
+- 内部交换解码器 ExchangeCodec 解码
 
 ```java
 
@@ -167,7 +170,9 @@ java.lang.UnsupportedOperationException: com.alibaba.com.caucho.hessian.io.MapDe
     }
 
 ```
-- DecodeableRpcInvocation.java类
+- DecodeableRpcInvocation类
+
+可以看到最后，是交给来hession2Code序列化器从请求中读取对象，当读取到map的时候报错了。
 
 ```java
 @Override
@@ -225,7 +230,7 @@ java.lang.UnsupportedOperationException: com.alibaba.com.caucho.hessian.io.MapDe
                 }
             }
             setParameterTypes(pts);
-            //读取一个java.util.Map对象
+            //读取一个java.util.Map对象，就在这里报错
             Map<String, String> map = (Map<String, String>) in.readObject(Map.class);
             if (map != null && map.size() > 0) {
                 Map<String, String> attachment = getAttachments();
@@ -252,7 +257,15 @@ java.lang.UnsupportedOperationException: com.alibaba.com.caucho.hessian.io.MapDe
         return this;
     }
 
-    //readobject
+   
+
+```    
+
+Hessian2ObjectInput对象的readobject方法
+
+```java
+
+ //这是 Hessian2ObjectInput对象的readobject方法
           case 0x77: {
                 int length = tag - 0x70;
 
@@ -264,7 +277,7 @@ java.lang.UnsupportedOperationException: com.alibaba.com.caucho.hessian.io.MapDe
 
                 boolean valueType = expectedTypes != null && expectedTypes.length == 1;
 
-                // fix deserialize of short type。  实现类有两个：AbstractDeserializer和CollectionDeserializer，如果是抽象类就会抛异常
+                // fix deserialize of short type。  实现类有两个：AbstractDeserializer和CollectionDeserializer，如果是抽象类就会抛异常 ， valueType=false，所以第三个参数是null
                 Object v = reader.readLengthList(this, length, valueType ? expectedTypes[0] : null);
 
                 return v;
@@ -317,9 +330,13 @@ java.lang.UnsupportedOperationException: com.alibaba.com.caucho.hessian.io.MapDe
 
         return deserializer;
     }
+```
 
-```    
-
+> 总结，调用者使用了一个ImutableMap构造的map对象来请求服务提供者，而且采用来泛化调用,知道的参数为Map
+```java
+            Object queryData = hadesFacade.$invoke("queryData", new String[]{String.class.getName(), Map.class.getName()},
+```
+所以解码失败。
 
 ## 异常2
 
