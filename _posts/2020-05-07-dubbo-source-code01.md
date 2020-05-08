@@ -11,6 +11,9 @@ tags: dubbo
 
 > 本文基于dubbo2.6.6
 
+温馨提示：从下往上看，从消费者到提供者
+
+![](https://tva1.sinaimg.cn/large/007S8ZIlly1gel5n5doacj30m80kiq6q.jpg)
 
 ChannelEventRunnable 线程在监听请求
 ```java
