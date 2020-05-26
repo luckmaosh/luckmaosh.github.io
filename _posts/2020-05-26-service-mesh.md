@@ -14,3 +14,5 @@ service mesh 探针
 
 
 
+istio系统组件细化到进程级别
+![](https://tva1.sinaimg.cn/large/007S8ZIlly1gf5yy7uzfxj318d0u0q80.jpg)
