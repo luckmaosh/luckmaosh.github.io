@@ -4,7 +4,7 @@ title: service mesh
 date: 2020-05-16
 categories: micro-service
 tags: 微服务
-header-img: /assets/img/hero.jpg
+# header-img: /assets/img/hero.jpg
 ---
 
 service mesh 探针

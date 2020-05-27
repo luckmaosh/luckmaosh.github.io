@@ -50,3 +50,34 @@ pip3 install beautifulsoup4
 ```
 
 
+
+
+解决因macOS High Sierra更新Ruby到2.3造成的Jekyll不能启动的问题
+
+zsh: /usr/local/bin/jekyll: bad interpreter: /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/bin: no such file or directory
+
+修改jekyll文件的行首，把路径改成#!/System/Library/Frameworks/Ruby.framework/Versions/2.3/usr/bin/ruby
+  
+
+
+ruby版本
+```
+ruby -v
+```
+
+rvm ruby的版本管理工具
+```
+rvm install 2.3
+```
+
+gem 
+```
+gem sources --remove https://rubygems.org/
+gem sources -a https://gems.ruby-china.org/
+```
+
+
+bundle 是gem的一个插件
+```
+ gem install bundle
+```
