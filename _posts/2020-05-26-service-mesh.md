@@ -1,10 +1,10 @@
 ---
 layout: post
 title: service mesh
-date: 2020-05-16
+date: 2020-05-27
 categories: micro-service
 tags: 微服务
-# header-img: /assets/img/hero.jpg
+cover: /assets/img/hero.jpg
 ---
 
 service mesh 探针
