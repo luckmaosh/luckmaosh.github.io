@@ -5,7 +5,7 @@ title: service mesh
 date: 2020-05-27
 categories: micro-service
 tags: 微服务
-cover: /assets/img/service-mesh-1680.png
+cover: /assets/img/service-mesh.png
 ---
 
 
@@ -32,11 +32,17 @@ Service Mesh探针从每个请求中收集遥测数据，因此它知道源，�
 
 Istio 作为 Service Mesh 领域的集大成者, 提供了流控, 安全, 遥测等模型, 其功能复杂, 模块众多, 有较高的学习和使用门槛。
 
-Kubernetes（k8s）
+Kubernetes（k8s）的主要概念包括：node、pod（一个pod里面有多个container）、container、service、process，更多时候它的名字会和docker联系在一起。也就是微服务部署，容器管理，进程管理，资源调度的功能。如果遇到资源不够的时候，k8s可以提供便利的伸缩扩容服务。
+
+k8s也有service机制，像spring cloud的服务一样，可以做到服务发现，服务注册，负载均衡，通过服务名访问到服务实例。
+
+K8s和微服务的关系，首先k8s不是微服务，微服务是一种架构，k8s是一个容器管理工具。其次，k8s支持微服务架构。
+
+Kubernetes的Service基于每个节点的Kube-proxy从Kube-apiserver上获取Service和Endpoint的信息，并将对Service的请求经过负载均衡转发到对应的 Endpoint 上。但Kubernetes只提供了4层负载均衡能力，无法基于应用层的信息进行负载均衡，更不会提供应用层的流量管理，在服务运行管理上也只提供了基本的探针机制，并不提供服务访问指标和调用链追踪这种应用的服务运行诊断能力。
 
 Istio和k8s一样，都是作为微服务的服务管理。Kubernetes本身是支持微服务的架构，在Pod中部署微服务很合适，也已经解决了微服务的互访互通问题。但是对服务间访问的管理如服务的熔断、限流、动态路由、调用链追踪等都不在k8s的范围内，这就需要Istio来实现。
 
-所以目前，最完美的答案就是在Kubernetes上叠加Istio这个好帮手。
+所以目前，最完美的答案就是在Kubernetes上叠加Istio这个好帮手。K8s主外，Istio主内
 
 
 ![](https://tva1.sinaimg.cn/large/007S8ZIlly1gf6tjv4ro2j30x60hkwh8.jpg)
@@ -45,6 +51,12 @@ Istio和k8s一样，都是作为微服务的服务管理。Kubernetes本身是�
 istio系统组件细化到进程级别
 ![](https://tva1.sinaimg.cn/large/007S8ZIlly1gf5yy7uzfxj318d0u0q80.jpg)
 
+## Istio 基于K8s
+### 统一服务发现
+
+基于k8s的域名访问机制构建而成，自己不需要搭建Eureka了
+
+## 
 
 ## k8s探针
 Istio利用k8s的探针对service进行流量健康检查，有两种探针可供选择，分别是liveness和readiness:
@@ -52,3 +64,6 @@ Istio利用k8s的探针对service进行流量健康检查，有两种探针可�
 liveness探针用来侦测什么时候需要重启容器。比如说当liveness探针捕获到程序运行时出现的一个死锁，这种情况下重启容器可以让程序更容易可用。
 
 readiness探针用来使容器准备好接收流量。当所有容器都ready时被视为pod此时ready。比如说用这种信号来控制一个后端服务，当pod没有到ready状态时，服务会从负载均衡被移除。
+
+
+[文档](https://yq.aliyun.com/articles/707679)
