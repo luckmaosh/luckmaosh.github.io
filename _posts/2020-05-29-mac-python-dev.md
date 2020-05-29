@@ -1,4 +1,10 @@
-# mac python 环境
+ ---
+layout: post
+title: mac python 环境
+date: 2020-05-29
+categories: python
+tags: mac  python
+---
 
 
 ## python3.7
