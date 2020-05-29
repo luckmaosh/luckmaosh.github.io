@@ -1,4 +1,4 @@
- ---
+---
 layout: post
 title: mac python 环境
 date: 2020-05-29
