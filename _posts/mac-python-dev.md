@@ -19,7 +19,7 @@ pip包的安装路径
 ```
 
 
-##pipenv工具安装
+## pipenv工具安装
 
 Pipenv 是 Python 项目的依赖管理器。如果您熟悉 Node.js 的 npm 或 Ruby 的 bundler，那么它们在思路上与这些工具类似。尽管 pip 可以安装 Python 包， 但仍推荐使用 Pipenv，因为它是一种更高级的工具，可简化依赖关系管理的常见使用情况。
 
@@ -29,6 +29,7 @@ $ pip install --user pipenv
 ```
 
 ## 安装wxpython
+
 这是一款python的GUI库，非常牛逼，用来做客户端编程
 
 ```
