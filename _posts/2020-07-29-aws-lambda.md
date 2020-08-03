@@ -5,6 +5,10 @@
 ![](https://tva1.sinaimg.cn/large/007S8ZIlly1gh9vy1zsikj30k00b9wev.jpg)
 
 
+虽然大家都在都在说serverless，云厂商也在提供serverless，目前 Serverless 体系，首选的是 FaaS + BaaS 模型，使用了 FaaS。所谓FAAS就是Function as a service功能即服务，BAAS就是BaaS（后端即服务：Backend as a Service）
+
+这些东西有什么用呢，在思考这个问题以前，我们要想清楚，这个东西能为业务解决什么问题。如果可以给业务落地提高效率，它就是银弹，否则就是花拳绣腿。
+
 ## AWS Lambda
 AWS Lambda 是一项计算服务，使用时无需预配置或管理服务器即可运行代码。AWS Lambda 只在需要时执行代码并自动缩放。借助 AWS Lambda，几乎可以为任何类型的应用程序或后端服务运行代码，而且无需执行任何管理。现在 AWS Lambda 支持 Node.js、Java、C# 和 Python。
 
