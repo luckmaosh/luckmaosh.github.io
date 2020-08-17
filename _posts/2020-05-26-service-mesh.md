@@ -32,7 +32,7 @@ Service Mesh探针从每个请求中收集遥测数据，因此它知道源，�
 
 Istio 作为 Service Mesh 领域的集大成者, 提供了流控, 安全, 遥测等模型, 其功能复杂, 模块众多, 有较高的学习和使用门槛。
 
-Kubernetes（k8s）的主要概念包括：node、pod（一个pod里面有多个container）、container、service、process，更多时候它的名字会和docker联系在一起。也就是微服务部署，容器管理，进程管理，资源调度的功能。如果遇到资源不够的时候，k8s可以提供便利的伸缩扩容服务。
+Kubernetes（k8s）的主要概念包括：node（物理节点）、pod（一个pod里面有多个container）、container、service、process，更多时候它的名字会和docker联系在一起。也就是微服务部署，容器管理，进程管理，资源调度的功能。如果遇到资源不够的时候，k8s可以提供便利的伸缩扩容服务。
 
 k8s也有service机制，像spring cloud的服务一样，可以做到服务发现，服务注册，负载均衡，通过服务名访问到服务实例。
 
