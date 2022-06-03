@@ -64,6 +64,7 @@ sns:
   juejin: '//juejin.im/user/5c91ddd26fb9a070df165e72'
   instagram: '//www.instagram.com/maso88666'
   github: '//github.com/luckmaosh'
+  twitter: ''
 
 # Tags 设置标签
 recommend-tags: true # whether or not display recommend-tags on the sidebar

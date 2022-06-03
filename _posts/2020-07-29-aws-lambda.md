@@ -1,6 +1,7 @@
 # 亚马逊AWS Lambda
 
->现在，随着 Serverless 的深入人心，云厂商都在说，“我们在定义 Serverless”，而开发者都说”我们在做 Serverless“，用户都是“在用 Serverless",人人都在往 Serverless 体系上靠，或多或少的沾点边，使得整个社区欣欣向荣。
+> 现在，随着 Serverless 的深入人心，云厂商都在说，“我们在定义 Serverless”，而开发者都说”我们在做 Serverless“，用户都是“在用 Serverless",人人都在往 Serverless 体系上靠，或多或少的沾点边，使得整个社区欣欣向荣。
+
 
 ![](https://tva1.sinaimg.cn/large/007S8ZIlly1gh9vy1zsikj30k00b9wev.jpg)
 
