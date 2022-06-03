@@ -1,3 +1,11 @@
+---
+layout: post
+title: 消息中间件对比
+date: 2020-08-06
+categories: java
+tags: rabbitmq kafka rocketmq
+---
+
 # 消息队列对比
 
 ## 优点
