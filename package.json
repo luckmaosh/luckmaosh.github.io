@@ -1,19 +1,28 @@
 {
-  "name": "a",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "name": "note-book",
+  "version": "0.0.1",
+  "description": "使用 vuepress 生成的 markdown 文档站点",
+  "author": "mrcode <99299684@qq.com>",
+  "private": false,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "docs:devx": "vuepress dev docs --open",
+    "docs:dev": "node --max_old_space_size=4096 ./node_modules/vuepress/cli.js dev docs --open",
+    "docs:buildx": "vuepress build docs",
+    "description": "在 build 时不要添加 --debug 之类的选项，否则会导致生成之后的搜索和侧边栏点击无效的问题",
+    "docs:build": "node --max_old_space_size=4096 ./node_modules/vuepress/cli.js build docs"
   },
-  "author": "",
-  "license": "ISC",
+  "dependencies": {
+    "moment": "^2.24.0",
+    "vue-router": "3.4.5",
+    "vuepress-plugin-baidu-tongji-analytics": "^1.0.1",
+    "vuepress-plugin-code-copy": "^1.0.4",
+    "vuepress-plugin-tags": "1.0.2"
+  },
   "devDependencies": {
-    "gulp": "^3.9.1",
-    "gulp-clean-css": "^3.0.4",
-    "gulp-rename": "^1.2.2",
-    "gulp-sass": "^3.1.0",
-    "gulp-uglify": "^2.1.2"
-  },
-  "dependencies": {}
+    "@vuepress/plugin-back-to-top": "1.8.0",
+    "@vuepress/plugin-medium-zoom": "1.8.0",
+    "@vuepress/plugin-pwa": "1.8.0",
+    "vuepress": "^1.9.9",
+    "vuepress-plugin-baidu-autopush": "^1.0.1"
+  }
 }
