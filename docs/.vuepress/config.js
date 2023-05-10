@@ -20,7 +20,7 @@ const regularSc = require('../regular')
 module.exports = {
   title: 'MRCODE-BOOK',
   description: '用来记录工作和学习过程中的笔记，汇总成册方便查阅，类容涵盖各类技术，如：Java、Git、ElasticSearch、MyCat、设计模式、Gradle、Vue - mrcode.cn',
-  base: '/note-book/', // gh-page 中是增加了项目名
+  base: '/', // gh-page 中是增加了项目名
   dest: 'build/.vuepress/dist',  // 目录配置在外,纯粹是有代码洁癖和强迫症，并不能规避开发模式下同时构建不报错的问题
   host: 'localhost', // dev 的域名
   port: 8080,
@@ -45,7 +45,7 @@ module.exports = {
     sidebarDepth: 3, // 嵌套标题侧边栏提取深度，最大为 2，会提取到 h3
     lastUpdated: '上次更新', // string | boolean
     // 假定是 GitHub. 同时也可以是一个完整的 GitLab URL
-    repo: 'https://github.com/zq99299/note-book',
+    repo: 'https://github.com/luckmaosh/luckmaosh.github.io',
     // 自定义仓库链接文字。默认从 `themeConfig.repo` 中自动推断为
     // "GitHub"/"GitLab"/"Bitbucket" 其中之一，或是 "Source"。
     repoLabel: 'GitHub',

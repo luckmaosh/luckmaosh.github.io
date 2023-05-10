@@ -159,7 +159,7 @@ mkdir -p /usr/servers/notework/gitrepo
 cd /usr/servers/notework/gitrepo
 ## 在该路径下存放我们的笔记项目
 git clone https://github.com/zq99299/mysql-tutorial.git
-git clone https://github.com/zq99299/note-book.git
+git clone https://github.com/luckmaosh/luckmaosh.github.io.git
 git clone https://github.com/zq99299/java-tutorial.git
 git clone https://github.com/zq99299/linux-tutorial.git
 git clone https://github.com/zq99299/mq-tutorial.git

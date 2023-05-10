@@ -257,7 +257,7 @@ ssh-keygen -t rsa -C "邮箱地址"
 
 > 分支地址如下：
 >
-> 0.x 分支 https://github.com/zq99299/note-book/tree/vuepress-demo
+> 0.x 分支 https://github.com/luckmaosh/luckmaosh.github.io/tree/vuepress-demo
 
 > 1.5.x 分支模板：可以直接用来快速创建一个常用的新笔记仓库
 > 
