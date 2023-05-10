@@ -66,7 +66,12 @@ module.exports = {
       // }
     },
     nav: [
-      { text: '目录', link: '/posts/' },
+      { text: 'JAVA', link: '/posts/java' },
+      { text: '大数据', link: '/posts/' },
+      { text: 'Linux', link: '/posts/linux' },
+      { text: 'MySql', link: '/posts/' },
+      { text: '云原生', link: '/posts/k8s' },
+      { text: 'AI', link: '/posts/ai' },
       {
         text: '设计模式', items: [
           { text: '设计模式（慕课）', link: '/imocc/design_pattern/' },
