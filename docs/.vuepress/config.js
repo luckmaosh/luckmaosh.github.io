@@ -18,19 +18,14 @@ const oath2Sc = require('../oath2')
 const regularSc = require('../regular')
 
 module.exports = {
-  title: 'MRCODE-BOOK',
-  description: '用来记录工作和学习过程中的笔记，汇总成册方便查阅，类容涵盖各类技术，如：Java、Git、ElasticSearch、MyCat、设计模式、Gradle、Vue - mrcode.cn',
+  title: 'notes',
+  description: '用来记录工作和学习过程中的笔记，汇总成册方便查阅，类容涵盖各类技术，如：Java、Git、ElasticSearch、MyCat、设计模式、Gradle、Vue',
   base: '/', // gh-page 中是增加了项目名
   dest: 'build/.vuepress/dist',  // 目录配置在外,纯粹是有代码洁癖和强迫症，并不能规避开发模式下同时构建不报错的问题
   host: 'localhost', // dev 的域名
   port: 8080,
-  // locales: {
-  //     // 键名是该语言所属的子路径
-  //     // 作为特例，默认语言可以使用 '/' 作为其路径。
-  //     // '/': {
-  //     //     lang: 'zh-CN', // 将会被设置为 <html> 的 lang 属性
-  //     // }
-  // },
+  
+  
   head:[
     ['link', { rel: 'icon', href: '/favicon.ico' }],
     ['link', { rel: 'manifest', href: '/manifest.json' }],
@@ -60,7 +55,7 @@ module.exports = {
     editLinks: true,
     // 默认为 "Edit this page"
     editLinkText: '帮助我们改善此页面！',
-    logo: '/mlogo.svg',
+    
     // 主题级别的配置
     serviceWorker: {
       updatePopup: true // Boolean | Object, 默认值是 undefined.
@@ -146,16 +141,14 @@ module.exports = {
           {
             text: '笔记精选汇总',
             items: [
-              { text: 'GitHub 站', link: 'https://github.com/zq99299/repository-summary' },
-              { text: '国内镜像站', link: 'http://book.mrcode.cn/' }
+              { text: 'GitHub 站', link: 'https://google.com/' }
+
             ]
           },
           { text: '博客文章 /_posts/ 路径失效说明', link: '/posts-failure.md' },
         ]
       }
-      /*
-      {text: 'MyCat', link: '/mycat/'},
-      {text: 'Vue', link: '/vue/'},*/
+      
     ],
     sidebar: {
       '/introduce/': introduceGenSidebarConfig(),
