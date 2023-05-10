@@ -209,7 +209,7 @@
   }
 
   h5 {
-    font-size: 16px;
+    font-size: 14px;
     font-weight: 300;
     margin: 0 0 15px;
     line-height: 22px;

@@ -64,7 +64,7 @@
             width: 120px;
             background-color: #fff;
             border-radius: 2px;
-            padding: 8px 16px;
+            padding: 8px 14px;
             box-shadow: 0 3px 8px rgba(0, 0, 0, .2);
             &>ul>li{
                 float: none;
@@ -73,8 +73,8 @@
                 margin-right: 0;
                 &>a {
                     display: block;
-                    padding: 16px 0;
-                    font-size: 16px;
+                    padding: 14px 0;
+                    font-size: 14px;
                     font-weight: bold;
                     color: #A5A8B0;
                     opacity: 1;
@@ -106,7 +106,7 @@
         display: block;
     }
     .read-next-item {
-        margin-bottom: 16px;
+        margin-bottom: 14px;
         &:first-child {
             margin-right: 0;
         }
@@ -173,7 +173,7 @@
     }
     .article-list {
         .article-item {
-            padding: 20px 16px;
+            padding: 20px 14px;
             margin-bottom: 8px;
             border-left: none;
             border-right: none;
@@ -191,7 +191,7 @@
                     line-height: 26px;
                 }
                 .post-subtitle {
-                    font-size: 16px;
+                    font-size: 14px;
                     line-height: 20px;
                 }
             }
@@ -224,7 +224,7 @@
             font-family: "Helvetica Neue", Helvetica, Arial, "Pingfang SC", "Microsoft Yahei", Sans-serif;
         }
         .post-meta {
-            margin-top: 16px;
+            margin-top: 14px;
         }
     }
     .post-content {
@@ -239,7 +239,7 @@
     }
     .markdown-body {
         p, ul>li {
-            font-size: 16px;
+            font-size: 14px;
             font-weight: 300;
             -webkit-font-smoothing: auto;
             -moz-osx-font-smoothing: auto;
@@ -248,10 +248,10 @@
             margin-top: 24px;
         }
         table {
-            margin: 16px auto;
+            margin: 14px auto;
         }
         img {
-            margin: 0 auto 16px;
+            margin: 0 auto 14px;
         }
         strong {
             font-weight: 400;
@@ -275,7 +275,7 @@
         }
         h3 {
             margin-top: 4px;
-            font-size: 16px;
+            font-size: 14px;
         }
     }
 

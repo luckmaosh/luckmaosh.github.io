@@ -71,7 +71,7 @@ module.exports = {
       // }
     },
     nav: [
-      { text: '博客（零散文章）', link: '/posts/' },
+      { text: '目录', link: '/posts/' },
       {
         text: '设计模式', items: [
           { text: '设计模式（慕课）', link: '/imocc/design_pattern/' },
@@ -85,7 +85,7 @@ module.exports = {
         ]
       },
       {
-        text: '缓存架构-亿级流量电商详情页系统实战',
+        text: '分布式缓存',
         ariaLabel: '缓存架构-亿级流量电商详情页系统实战',
         items: [
           {
@@ -120,8 +120,7 @@ module.exports = {
       },
       {
         text: '更多', items: [
-          { text: '本笔记介绍', link: '/introduce/' },
-          { text: 'Linux 基础篇', link: 'https://zq99299.github.io/linux-tutorial/' },
+          { text: '本笔记介绍', link: '/introduce/' },          
           { text: 'Spring Cloud', link: '/spring-cloud-tutorial/' },
           { text: 'CSS 深入理解（张鑫旭）', link: '/css-zxx/' },
           { text: '正则入门', link: '/regular/' },
