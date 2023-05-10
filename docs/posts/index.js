@@ -11,7 +11,31 @@ module.exports = () => {
         'linux/dist-manage.md'
       ]
     },
-    '2019/',
+    {
+      title: '2019',
+      collapsable: true,
+      children: [
+        '2019/',
+        '2019/2019-12-31-docker.md',
+        '2019/2019-12-31-LPR-is-comming.md'
+      ]
+    },
+    {
+      title: '2020',
+      collapsable: true,
+      children: [
+        '2020/'        
+      ]
+    },
+    {
+      title: '2023',
+      collapsable: true,
+      children: [
+        '2023/',
+        '2023/how-to-install-flink.md'
+        
+      ]
+    },
     'virtualbox/',
     'docker/',
     {
