@@ -32,8 +32,11 @@ module.exports = () => {
       collapsable: true,
       children: [
         '2023/',
-        '2023/how-to-install-flink.md'
-        
+        '2023/how-to-install-flink.md',
+        '2023/item-governence.md',
+        '2023/authority-system-design-zhuanhzuan.md',
+        '2023/feed-system-design.md',
+        '2023/feed-system2.md'        
       ]
     },
     'virtualbox/',

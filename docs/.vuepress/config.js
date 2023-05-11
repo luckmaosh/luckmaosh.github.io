@@ -174,6 +174,7 @@ module.exports = {
       '/middle-office/': middlegroundSc(),
       '/oath2/': oath2Sc(),
       '/regular/': regularSc()
+      
     }
   },
   plugins: [
