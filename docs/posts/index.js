@@ -36,7 +36,8 @@ module.exports = () => {
         '2023/item-governence.md',
         '2023/authority-system-design-zhuanhzuan.md',
         '2023/feed-system-design.md',
-        '2023/feed-system2.md'        
+        '2023/feed-system2.md'   ,
+        '2023/trie-tree.md'     
       ]
     },
     'virtualbox/',
