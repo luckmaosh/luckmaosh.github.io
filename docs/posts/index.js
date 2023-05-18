@@ -33,15 +33,7 @@ module.exports = () => {
     },
     'virtualbox/',
     'docker/',
-    {
-      title: 'k8s',
-      collapsable: true,
-      children: [
-        'k8s/',
-        'k8s/kubernetes-basics.md',
-        'k8s/configure-redis-using-configmap.md'
-      ]
-    },
+   
     {
       title: 'Nodejs',
       collapsable: true,

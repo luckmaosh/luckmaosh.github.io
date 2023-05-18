@@ -73,6 +73,19 @@
 +   在sprinBoot启动时由@SpringBootApplication注解会自动去maven中读取每个starter中的spring.factories文件,该文件里配置了所有需要被创建spring容器中的bean，并且进行自动配置把bean注入SpringContext中 //（SpringContext是Spring的配置文件）
     
 
+###  SpringBoot Starter 的工作原理是什么？
+SpringBoot 在启动的时候会干这几件事情：
+
+1、 SpringBoot 在启动时会去依赖的 Starter 包中寻找 resources/META-INF/spring.factories 文件，然后根据文件中配置的 Jar 包去扫描项目所依赖的 Jar 包。
+
+2、 根据 spring.factories 配置加载 AutoConfigure 类
+
+3、 根据 @Conditional 注解的条件，进行自动配置并将 Bean 注入 Spring Context
+
+总结一下，其实就是 SpringBoot 在启动的时候，按照约定去读取 SpringBoot Starter 的配置信息，再根据配置信息对资源进行初始化，并注入到 Spring 容器中。这样 SpringBoot 启动完毕后，就已经准备好了一切资源，使用过程中直接注入对应 Bean 资源即可。
+
+这只是简单的三连环问答，不知道有多少同学能够完整的回答出来。
+
 ### Spring Boot 2.X 有什么新特性？与 1.X 有什么区别？
 
 +   配置变更

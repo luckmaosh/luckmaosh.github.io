@@ -18,6 +18,8 @@ const oath2Sc = require('../oath2')
 const regularSc = require('../regular')
 const java = require('../java')
 const linux = require('../linux')
+const mysql = require('../mysql')
+const k8s = require('../k8s')
 
 module.exports = {
   title: 'notes',
@@ -71,8 +73,8 @@ module.exports = {
       { text: 'JAVA', link: '/java/' },
       { text: '大数据', link: '/posts/' },
       { text: 'Linux', link: '/linux/' },
-      { text: 'MySql', link: '/posts/' },
-      { text: '云原生', link: '/posts/k8s' },
+      { text: 'MySql', link: '/mysql/' },
+      { text: '云原生', link: '/k8s/' },
       { text: 'AI', link: '/posts/ai' },
       {
         text: '设计模式', items: [
@@ -159,7 +161,9 @@ module.exports = {
     ],
     sidebar: {
       '/linux/':linux(),
+      '/mysql/':mysql(),
       '/java/': java(),
+      '/k8s/': k8s(),
       '/introduce/': introduceGenSidebarConfig(),
       '/imocc/design_pattern/': imoccDesignPatternGenSidebarConfig(),
       '/design_pattern/': designPatternGenSidebarConfig(),
