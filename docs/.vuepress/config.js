@@ -16,6 +16,8 @@ const backEndStorageSc = require('../back-end-storage')
 const middlegroundSc = require('../middle-office')
 const oath2Sc = require('../oath2')
 const regularSc = require('../regular')
+const java = require('../java')
+const linux = require('../linux')
 
 module.exports = {
   title: 'notes',
@@ -66,9 +68,9 @@ module.exports = {
       // }
     },
     nav: [
-      { text: 'JAVA', link: '/posts/java' },
+      { text: 'JAVA', link: '/java/' },
       { text: '大数据', link: '/posts/' },
-      { text: 'Linux', link: '/posts/linux' },
+      { text: 'Linux', link: '/linux/' },
       { text: 'MySql', link: '/posts/' },
       { text: '云原生', link: '/posts/k8s' },
       { text: 'AI', link: '/posts/ai' },
@@ -156,6 +158,8 @@ module.exports = {
       
     ],
     sidebar: {
+      '/linux/':linux(),
+      '/java/': java(),
       '/introduce/': introduceGenSidebarConfig(),
       '/imocc/design_pattern/': imoccDesignPatternGenSidebarConfig(),
       '/design_pattern/': designPatternGenSidebarConfig(),

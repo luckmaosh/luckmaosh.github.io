@@ -1,16 +1,7 @@
 module.exports = () => {
   return [
     '',
-    {
-      title: 'linux',
-      collapsable: true,
-      children: [
-        'linux/',
-        'linux/git.md',
-        'linux/yum.md',
-        'linux/dist-manage.md'
-      ]
-    },
+   
     {
       title: '2019',
       collapsable: true,
@@ -67,14 +58,7 @@ module.exports = () => {
         'vuepress/nginx/',
       ]
     },
-    {
-      title: 'JAVA',
-      collapsable: true,
-      children: [
-        'java/',
-        'java/javafx/'
-      ]
-    },
+  
     {
       title: 'Gradle',
       collapsable: true,
