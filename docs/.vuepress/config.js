@@ -20,9 +20,10 @@ const java = require('../java')
 const linux = require('../linux')
 const mysql = require('../mysql')
 const k8s = require('../k8s')
+const ai = require('../ai')
 
 module.exports = {
-  title: 'notes',
+  title: 'Home',
   description: '用来记录工作和学习过程中的笔记，汇总成册方便查阅，类容涵盖各类技术，如：Java、Git、ElasticSearch、MyCat、设计模式、Gradle、Vue',
   base: '/', // gh-page 中是增加了项目名
   dest: 'build/.vuepress/dist',  // 目录配置在外,纯粹是有代码洁癖和强迫症，并不能规避开发模式下同时构建不报错的问题
@@ -75,7 +76,7 @@ module.exports = {
       { text: 'Linux', link: '/linux/' },
       { text: 'MySql', link: '/mysql/' },
       { text: '云原生', link: '/k8s/' },
-      { text: 'AI', link: '/posts/ai' },
+      { text: 'AI', link: '/ai/' },
       {
         text: '设计模式', items: [
           { text: '设计模式（慕课）', link: '/imocc/design_pattern/' },
@@ -164,6 +165,7 @@ module.exports = {
       '/mysql/':mysql(),
       '/java/': java(),
       '/k8s/': k8s(),
+      '/ai/':ai(),
       '/introduce/': introduceGenSidebarConfig(),
       '/imocc/design_pattern/': imoccDesignPatternGenSidebarConfig(),
       '/design_pattern/': designPatternGenSidebarConfig(),
